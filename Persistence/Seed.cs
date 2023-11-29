@@ -6,11 +6,11 @@ namespace Persistence
     {
         public static async Task SeedData(DataContext context)
         {
-            if (context.Activities.Any()) return;
+            if (context.Fb_Informations.Any()) return;
             
-            var activities = new List<Activity>
+            var informations = new List<Fb_Information>
             {
-                new Activity
+               /* new Fb_Information
                 {
                     Title = "Past Activity 1",
                     Date = DateTime.UtcNow.AddMonths(-2),
@@ -99,10 +99,10 @@ namespace Persistence
                     Category = "film",
                     City = "London",
                     Venue = "Cinema",
-                }
+                }*/
             };
 
-            await context.Activities.AddRangeAsync(activities);
+            await context.Fb_Informations.AddRangeAsync(informations);
             await context.SaveChangesAsync();
         }
     }

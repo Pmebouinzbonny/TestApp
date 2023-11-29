@@ -9,6 +9,7 @@ namespace Persistence
         {
 
         }
-        public DbSet<Activity> Activities { get; set; }
+        public DbSet<Fb_Information> Fb_Informations { get; set; }
+        public DbSet<TestDataResult> DatabaseTestApp { get; set; }
     }
 }
