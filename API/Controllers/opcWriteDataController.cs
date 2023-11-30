@@ -22,6 +22,10 @@ namespace API.Controllers
             // set the server adress
             urlServerEndPoint = request.urlServerEndPoint;
             // create and connect client to server
+            if (myClient != null)
+            {
+                myClient.Disconnect();
+            }
             myClient = new OpcClient(urlServerEndPoint);
             myClient.Connect();
             var nodeId = request.NodeId;
@@ -43,7 +47,8 @@ namespace API.Controllers
             else if (dataType == "Double")
             {
                 myClient.WriteNode(nodeId, Double.Parse(value1));
-            }else if (dataType == "Float")
+            }
+            else if (dataType == "Float")
             {
                 myClient.WriteNode(nodeId, float.Parse(value1, CultureInfo.InvariantCulture.NumberFormat));
             }

@@ -295,10 +295,12 @@ function RootNodeTree({ UrlServerEndPoint }: Props) {
                 if (inputarrayTable2[i].method === 'Read') {
                     // method to enter the NodeId
                     await MethodeToEnterNodeIdToRead(inputarrayTable2[i].nodeId, UrlServerEndPoint);
+                    await sleep(parseInt(inputValueForTimeOut))
+                    setValuesOpcUa((await MethodeToReadData()));
 
                     // method to read Data from Server
                     console.log("TTTTT", (await MethodeToReadData()).value);
-                    setValuesOpcUa((await MethodeToReadData()));
+                    
                 }
                 // if method choose is wait 
                 if (inputarrayTable2[i].method === 'Wait') {
